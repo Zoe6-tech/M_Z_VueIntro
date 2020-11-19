@@ -6,19 +6,37 @@
     <title>Wroking with Vue</title>
     <!-- development version, includes helpful console warnings -->
    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-
+   <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
     <main id=app>
-        <h1 @click="clickHeader">{{ message }} </h1> <!-- v-on-->
+        <h1 @click="clickHeader">{{ message }} </h1> <!--@click = v-on:click-->
         <p>{{anotherMessage}}</p>
+
         <!--show the prof data in prof array-->
         <ul>
-            <li v-for="prof in profs">
-               <p v-on:click="logClicked">Prof Name: {{prof.name}}, Role: {{prof.role}}</p><!--everything out of {{}} will rendered as html text-->
+            <li v-for="prof in professors">
+               <p >
+                   Prof Name: {{prof.name}}, 
+                   Role: {{prof.role}}
+                </p><!--everything out of {{}} will rendered as html text-->
+                <a href="" class="remove-prof" @click.prevent="removeProf(prof)"  v-bind:class="{'prof-button-modifier': removeAformat}">Remove {{prof.name}}</a><!--get data in prof-->
+                <!--prevent:not refresh page after click-->
+                <!--name of class:prof-button-modifier,  removeAformat is data a propety-->
             </li>
         </ul>
+
+        <section class="bio-data" v-bind:class="{'show-bio':showBioData}">
+            <!--apply show-bio if show-bio-data is true-->
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui facere voluptas necessitatibus accusamus porro esse quae amet nulla molestiae. Perspiciatis cupiditate inventore animi sed ea illum maiores? Obcaecati, dolore tempora?
+            </p>
+        </section>
+
     </main>
 </body>
+
+
 <script src="js/main.js" type="module"></script>
 </html>
