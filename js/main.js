@@ -67,7 +67,8 @@ import { fetchdata } from "./components/TheDataMiner.js";
 
                 //make the selected prof's data visible
                 //indexOf find which line you wnat to delete,just one line
-                this.professors.splice(this.professors.indexOf(target),1);
+                // this.professors.splice(this.professors.indexOf(target),1);
+                this.$delete(this.professors,target);
             }
         }
     }).$mount("#app"); // also connects Vue to your wrapper in HTML

@@ -16,7 +16,7 @@
 
         <!--show the prof data in prof array-->
         <ul>
-            <li v-for="prof in professors">
+            <li v-for="prof,index in professors">
 
                <p >
                    Prof Name: {{prof.name}}, <!--everything out of {{}} will rendered as html text-->
@@ -31,7 +31,7 @@
 
 
                 <!-- button to remove prof-->
-                <a href="" class="remove-prof" @click.prevent="removeProf(prof)"  
+                <a href="" class="remove-prof" @click.prevent="removeProf(index)"  
                 v-bind:class="{'prof-button-modifier': removeAformat}">Remove {{prof.name}}</a><!--get data in prof-->
             </li>
         </ul>
