@@ -16,24 +16,20 @@
 
         <!--show the prof data in prof array-->
         <ul>
-            <li v-for="prof,index in professors">
+             <!-- this is a costom  Vue component  defined in main.js -->
+             <prof-card v-for="prof in professors" :prof="prof" :key="prof.id"></prof-card>
+             
 
+            <!-- <li v-for="prof,index in professors">
                <p >
-                   Prof Name: {{prof.name}}, <!--everything out of {{}} will rendered as html text-->
-                   Role: {{prof.role}}<!--this two will show on the screen-->
+                    Prof Name: {{prof.name}},
+                   Role: {{prof.role}}
                </p>
-
-                 <!-- button to show more info-->
                 <a href="" class="remove-prof" @click.prevent="showProfData(prof)"  
-                v-bind:class="{'prof-button-modifier': removeAformat}">show {{prof.name}}'s info</a><!--get data in prof-->
-                <!--prevent:not refresh page after click-->
-                <!--name of class:prof-button-modifier,  removeAformat is data a propety-->
-
-
-                <!-- button to remove prof-->
+                v-bind:class="{'prof-button-modifier': removeAformat}">show {{prof.name}}'s info</a>
                 <a href="" class="remove-prof" @click.prevent="removeProf(index)"  
-                v-bind:class="{'prof-button-modifier': removeAformat}">Remove {{prof.name}}</a><!--get data in prof-->
-            </li>
+                v-bind:class="{'prof-button-modifier': removeAformat}">Remove {{prof.name}}</a>
+            </li> -->
         </ul>
         
         <!--apply show-bio if show-bio-data is true-->
