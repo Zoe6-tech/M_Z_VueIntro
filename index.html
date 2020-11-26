@@ -17,21 +17,30 @@
         <!--show the prof data in prof array-->
         <ul>
             <li v-for="prof in professors">
+
                <p >
-                   Prof Name: {{prof.name}}, 
-                   Role: {{prof.role}}
-                </p><!--everything out of {{}} will rendered as html text-->
-                <a href="" class="remove-prof" @click.prevent="removeProf(prof)"  v-bind:class="{'prof-button-modifier': removeAformat}">Remove {{prof.name}}</a><!--get data in prof-->
+                   Prof Name: {{prof.name}}, <!--everything out of {{}} will rendered as html text-->
+                   Role: {{prof.role}}<!--this two will show on the screen-->
+               </p>
+
+                 <!-- button to show more info-->
+                <a href="" class="remove-prof" @click.prevent="showProfData(prof)"  
+                v-bind:class="{'prof-button-modifier': removeAformat}">show {{prof.name}}'s info</a><!--get data in prof-->
                 <!--prevent:not refresh page after click-->
                 <!--name of class:prof-button-modifier,  removeAformat is data a propety-->
+
+
+                <!-- button to remove prof-->
+                <a href="" class="remove-prof" @click.prevent="removeProf(prof)"  
+                v-bind:class="{'prof-button-modifier': removeAformat}">Remove {{prof.name}}</a><!--get data in prof-->
             </li>
         </ul>
-
-        <section class="bio-data" v-bind:class="{'show-bio':showBioData}">
-            <!--apply show-bio if show-bio-data is true-->
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui facere voluptas necessitatibus accusamus porro esse quae amet nulla molestiae. Perspiciatis cupiditate inventore animi sed ea illum maiores? Obcaecati, dolore tempora?
-            </p>
+        
+        <!--apply show-bio if show-bio-data is true-->
+        <!--show more section-->
+        <section class="bio-data" v-bind:class="{'show-bio':showBioData}">      
+            <h1>{{ currentProfData.name }}</h1>
+            <p>{{ currentProfData.nickname}}</p>
         </section>
 
     </main>
